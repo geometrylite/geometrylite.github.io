@@ -1,6 +1,6 @@
 {
 "companyName": "DefaultCompany",
-"productName": "Geometry Dash",
+"productName": "Geometry Lite v2",
 "productVersion": "0.1",
 "dataUrl": "geo.data.unityweb",
 "wasmCodeUrl": "geo.wasm.code.unityweb",
