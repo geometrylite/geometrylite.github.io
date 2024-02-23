@@ -11,9 +11,13 @@ const domain_disable_arr= ["geometrydashlite.gg","geometrydashpc.io","geometryda
 			}
 		}
 		let is_iframe = inIframe();
-				console.log(document.referrer);
+		let url = document.referrer
+		let domain_url = (new URL(url));
+		let domain = domain.hostname.replace('www.','');
+			
 		 let nav = document.getElementById("nav"); 
-		 //let is_domain = arrayContains(window.top,) 
+		   is_run = arrayContains(domain,domain_disable_arr) 
+		 
 		if(is_iframe){
 			
 		}else{
