@@ -216,10 +216,9 @@
     var gameInstance = UnityLoader.instantiate("gameContainer", "Build/geo.json", {onProgress: UnityProgress});
 
     function UnityProgress(gameInstance, progress) {
-console.log(is_run)
-        if (!is_run) {
-			return;
-		}
+ 
+        if (is_run) {
+		 
 
         const loader = document.querySelector("#loader");
         let percent_progress = progress * 100;
@@ -238,6 +237,9 @@ console.log(is_run)
                 loader.style.display = "none";
             }, 2000);
         }
+		}else{
+		return;
+		}
     }
 </script>
 
