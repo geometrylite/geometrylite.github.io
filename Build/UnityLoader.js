@@ -11,7 +11,7 @@ const domain_disable_arr= ["geometrydashlite.gg","geometrydashpc.io","geometryda
 			}
 		}
 		let is_iframe = inIframe();
-		console.log(window.parent);
+				console.log(window.parent);
 		 let nav = document.getElementById("nav"); 
 		 //let is_domain = arrayContains(window.top,) 
 		if(is_iframe){
