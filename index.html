@@ -204,7 +204,9 @@
     </symbol>
 </svg>
 </body>
-
+<script>
+	var is_run = true;
+</script>
 
 <script src="Build/UnityLoader.js"></script>
 <script>
@@ -215,9 +217,9 @@
 
     function UnityProgress(gameInstance, progress) {
 
-        //if (!gameInstance.Module) {
-        //return;
-        //}
+        if (!is_run) {
+			return;
+		}
 
         const loader = document.querySelector("#loader");
         let percent_progress = progress * 100;
@@ -229,7 +231,7 @@
             loader.querySelector(".spinner").style.display = "none";
 
         }
-
+		
         gameInstance.progress.style.width = `${percent_progress}%`;
         if (progress === 1 && !gameInstance.removeTimeout) {
             gameInstance.removeTimeout = setTimeout(function () {
