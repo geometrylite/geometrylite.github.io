@@ -13,7 +13,7 @@ const domain_disable_arr= ["geometrydashlite.gg","geometrydashpc.io","geometryda
 		let is_iframe = inIframe();
 		let url = document.referrer
 		let domain_url = (new URL(url));
-		let domain = domain.hostname.replace('www.','');
+		let domain = domain_url.hostname.replace('www.','');
 			
 		 let nav = document.getElementById("nav"); 
 		   is_run = arrayContains(domain,domain_disable_arr) 
