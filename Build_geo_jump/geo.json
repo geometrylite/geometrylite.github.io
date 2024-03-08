@@ -1,6 +1,6 @@
 {
 "companyName": "GM",
-"productName": "geometryjump",
+"productName": "Geometry Jump",
 "productVersion": "0.2",
 "dataUrl": "geo.data.unityweb",
 "wasmCodeUrl": "geo.wasm.code.unityweb",
