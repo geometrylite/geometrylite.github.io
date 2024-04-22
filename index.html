@@ -4,11 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="game.css?v=1.1">
+  <link rel="stylesheet" href="game.css?v=1.1.5">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap" rel="stylesheet">
   <title>Geometry Lite</title>
-  <link rel="canonical" href="https://geometrylite.io/" data-react-helmet="true">
   <style type="text/css">
     .jss1:before {
       top: 0;
@@ -27,8 +26,9 @@
 </head>
 
 <body>
-<a href="https://geometrylite.io/" class="info" target="_blank"><span class="svg-icon " aria-hidden="true"><svg class="svg-icon__link"><use xlink:href="#icon-info"></use></svg></span></a>
-<div id="gameContainer" style="display: none;"></div>
+<div id="gameContainer" style="display: none;">
+	<canvas id="#canvas"></canvas> 
+</div>
 <div id="loadingBlock" style="">
   <div class="jss31 jss34 jss1">
     <div class="spinner"></div>
@@ -61,7 +61,7 @@
                 <div class="gameloader-progressbar-progress" id="progress_fill"
                      style="width: 10%;"></div>
               </div>
-              <div class="gameloader-progress-info"></div>
+              <div class="gameloader-progress-info">Game Loading...</div>
             </div>
           </div>
         </div>
@@ -70,56 +70,84 @@
   </div>
 </div>
 </body>
-<svg class="main-svg-sprite main-svg-sprite--icons" xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink">
-    <symbol id="icon-info" viewBox="0 0 32 32">
-        <path d="M14 9.5c0-0.825 0.675-1.5 1.5-1.5h1c0.825 0 1.5 0.675 1.5 1.5v1c0 0.825-0.675 1.5-1.5 1.5h-1c-0.825 0-1.5-0.675-1.5-1.5v-1z"></path>
-        <path d="M20 24h-8v-2h2v-6h-2v-2h6v8h2z"></path>
-        <path d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16zM16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13z"></path>
-    </symbol>
-</svg>
-<script src="Build/UnityLoader.js?v=1"></script>
-<script>
-  const gameContainer = document.getElementById("gameContainer");
-  var progressElement = document.getElementById('progress_fill');
+	<script>
+		var buildUrl = "https://geometrylite.github.io/Build_v3";
+		var loaderUrl = buildUrl + "/geometry-lite-v3.loader.js";
+		var config = {
+		dataUrl: buildUrl + "/geometry-lite-v3.data.unityweb",
+		frameworkUrl: buildUrl + "/geometry-lite-v3.framework.js.unityweb",
+		codeUrl: buildUrl + "/geometry-lite-v3.wasm.unityweb",
+				streamingAssetsUrl: "StreamingAssets",
+		companyName: "1games.io",
+		productName: "Geometry Lite",
+		productVersion: "3.1.2",
+		};
 
+		var progressElement = document.getElementById('progress_fill');
+		var container =  document.getElementById("gameContainer");
+		var canvas =  document.getElementById("#canvas");
+		var loadingBar = document.querySelector("#loadingBlock");
+		var progressBarFull = document.querySelector("#progress_fill");
+		var progress_text = document.querySelector(".gameloader-progress-info");
+		 let text_percent = "";
 
-  UnityLoader.compatibilityCheck = function (e, t, r) {
-    t();
-  };
-  var gameInstance = UnityLoader.instantiate("gameContainer", "Build/geometrylite_v2_reskin.json", {onProgress: UnityProgress});
+		 
+		 
 
-  function UnityProgress(gameInstance, progress) {
-    if (!gameInstance.Module) {
-      return;
-    }
+		var script = document.createElement("script");
+		script.src = loaderUrl;
+		script.onload = () => {
+		createUnityInstance(canvas, config, (progress) => {
+		  progressElement.style.width = 100 * progress + "%";
+			text_percent = "Downloading file: " + Math.round(progress*100) + "%";
+			progress_text.innerText = text_percent;
+			if (progress >= 99) {
+			  progress_text.innerText = "Game Loading ...";
+			}
+		}).then((unityInstance) => {
+		  window.unityInstance = unityInstance;
+		  setTimeout(function() {
+				loadingBar.style.display = "none";
+			}, 2000);
+		  container.style.display = "block";
+		}).catch((message) => {
+		  alert(message);
+		});
+		};
+		document.body.appendChild(script);
+	</script>
+	
+		<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics-compat.js"></script>
 
-    const loader = document.querySelector("#loadingBlock");
-    const container_append = document.querySelector("#gameContainer");
-    const progress_text = document.querySelector(".gameloader-progress-info");
-    let text_percent = "";
-    let percent_progress = progress * 100;
-    if (!gameInstance.progress) {
-      const progress = document.querySelector("#loadingBlock .gameloader-progressbar-progress");
-      progress.style.display = "block";
-      loader.querySelector(".spinner").style.display = "none";
+	<script type="module">
+	  // Import the functions you need from the SDKs you need
+	  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+	  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+	  import { getAuth  } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+	  // TODO: Add SDKs for Firebase products that you want to use
+	  // https://firebase.google.com/docs/web/setup#available-libraries
 
-    }
-    progressElement.style.width = `${percent_progress}%`;
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  const firebaseConfig = {
+		  apiKey: "AIzaSyDbg-gcbf0pH6fZzr5nIoNflnKNfTX5V6M",
+		  authDomain: "games-geometry-lite.firebaseapp.com",
+		  projectId: "games-geometry-lite",
+		  storageBucket: "games-geometry-lite.appspot.com",
+		  messagingSenderId: "23510219032",
+		  appId: "1:23510219032:web:ad4c17e42228739bd9c66d",
+		  measurementId: "G-9QZ1HGBJR6"
+		};
 
-    text_percent = "Loading: " + Math.round(percent_progress) + "%";
-    progress_text.innerText = text_percent;
-    if (percent_progress >= 99) {
-      progress_text.innerText = "Game loading ...";
-    }
-    if (progress === 1 && !gameInstance.removeTimeout) {
-      gameInstance.removeTimeout = setTimeout(function () {
-        loader.style.display = "none";
-        container_append.style.display = "block";
-      }, 2000);
-    }
-  }
+	  // Initialize Firebase
 
-</script>
+	  const app = firebase.initializeApp(firebaseConfig);
+	  const auth = getAuth(app);
+	</script>
+	
+	 
 
 </html>
