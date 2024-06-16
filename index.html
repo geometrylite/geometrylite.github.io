@@ -132,15 +132,11 @@
 	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics-compat.js"></script>
 
 	<script type="module">
-	  // Import the functions you need from the SDKs you need
+		
 	  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
 	  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
 	  import { getAuth  } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-	  // TODO: Add SDKs for Firebase products that you want to use
-	  // https://firebase.google.com/docs/web/setup#available-libraries
-
-	  // Your web app's Firebase configuration
-	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	
 	  const firebaseConfig = {
 		  apiKey: "AIzaSyDbg-gcbf0pH6fZzr5nIoNflnKNfTX5V6M",
 		  authDomain: "games-geometry-lite.firebaseapp.com",
@@ -150,9 +146,7 @@
 		  appId: "1:23510219032:web:ad4c17e42228739bd9c66d",
 		  measurementId: "G-9QZ1HGBJR6"
 		};
-
-	  // Initialize Firebase
-
+		
 	  const app = firebase.initializeApp(firebaseConfig);
 	  const auth = getAuth(app);
 	</script>
