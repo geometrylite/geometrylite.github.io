@@ -1,0 +1,9 @@
+<IfModule mod_mime.c>
+AddType application/wasm .wasm
+AddEncoding gzip .unityweb
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch ".(unityweb)$">
+    Header set Cache-Control "no-transform"
+  </FilesMatch>
+</IfModule>

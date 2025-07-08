@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Geometry Dash Lite",
+        "slug": "geometry-dash-lite",
+        "image": "/cache/data/image/game/geometry-dash/geometry-lite-game-m186x186.webp"
+    },
+    {
+        "name": "Geometry Lite Classic",
+        "slug": "geometry-lite-classic",
+        "image": "/cache/data/image/no_image-m186x186.webp"
+    }
+]

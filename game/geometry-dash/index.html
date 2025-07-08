@@ -1,0 +1,117 @@
+<!DOCTYPE html> <html lang="en-us"> <head> 	<meta charset="utf-8"> 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 	<link rel="stylesheet" href="25070503/theme/game.css"> 	<link rel="canonical" href="https://geometrylite.github.io">  	<title>Geometry Dash Lite</title> 	<meta name="description" content="Dashmetry allows you to go on epic adventures in the world of geometry completely free of charge. Challenging maps are waiting for you to conquer!"/> 	<style type="text/css"> 		.jss1:before { 			top: 0; 			width: 100%; 			filter: blur(16px); 			height: 100%; 			content: ""; 			display: block; 			opacity: .5; 			z-index: 0; 			position: absolute; 			background-size: cover; 			background-image: url("25070503/loading.png") 		} 	</style>  	  	<script>
+		var buildUrl = "Build";
+		var versionFolder = "25070503/";
+		buildUrl = "https://play.1games.io/game/geometry-lite/"+versionFolder + buildUrl;
+		var loaderUrl = buildUrl + "/geometry-lite-v25070503.loader.js";
+		var config = {
+			dataUrl: buildUrl + "/geometry-lite-v25070503.data.unityweb",
+			frameworkUrl: buildUrl + "/geometry-lite-v25070503.framework.js.unityweb",
+			codeUrl: buildUrl + "/geometry-lite-v25070503.wasm.unityweb",
+			streamingAssetsUrl: versionFolder+"StreamingAssets",
+			companyName: "1games.io",
+			productName: "Dashmetry",
+			productVersion: "25070503",
+			pubId: ""
+		};
+		config.hostindex = 2;
+		config.gameId = "geometry-lite";
+		config.eventLog=true;
+		config.buildAPI = "https://event.azgame.io/apiaz/event";
+		let currentDate = new Date();
+		let endLogDate = new Date("2025-07-23T02:18:03.775Z");
+		if(currentDate>endLogDate){
+			config.eventLog=false;
+		}
+		config.enableMoreGame="yes";
+		config.enablePromotion = true;
+		config.gdHost=isHostOnGD();
+	 
+		if(config.gdHost){
+			config.enableMoreGame="no";
+			config.enablePromotion = false;
+			config.eventLog = false;
+			config.sdkType = "gd";
+			config.gdGameId = "USE_GD_GAME_ID_CODE";
+		}else{
+			function _0x4dc7(){var _0x5baf6b=['referrer','location','href','https://1games.io/','gameId','top','hostname'];_0x4dc7=function(){return _0x5baf6b;};return _0x4dc7();}function _0x2656(_0x4dc730,_0x265666){var _0x5573fb=_0x4dc7();return _0x2656=function(_0x34657b,_0x5d913d){_0x34657b=_0x34657b-0x0;var _0x1842c9=_0x5573fb[_0x34657b];return _0x1842c9;},_0x2656(_0x4dc730,_0x265666);}isDiffHost()?!document[_0x2656(0x0)]&&(config={}):!document[_0x2656(0x0)]&&(window[_0x2656(0x1)][_0x2656(0x2)]=_0x2656(0x3)+config[_0x2656(0x4)]);function isDiffHost(){try{if(window[_0x2656(0x5)]&&window==window[_0x2656(0x5)])return![];if(window[_0x2656(0x5)][_0x2656(0x1)][_0x2656(0x6)]==window[_0x2656(0x1)][_0x2656(0x6)])return![];}catch(_0x24cfad){return!![];}return!![];}
+		}		
+		
+		
+		function isHostOnGD() {
+			let domainParts = window.location.hostname.split('.');
+			let mainDomain = domainParts.slice(-2).join('.');
+			return (mainDomain=="gamedistribution.com");
+		}
+		
+	</script> 	<script id="gmsoft-jssdk" src="https://games.1games.io/lib/gmsoftsdk_v6.js?v=2"></script> </head>  <body> <div id="unity-container" style="display: none;"> 	<canvas id="unity-canvas"></canvas>  </div> <div id="loadingBlock" style=""> 	<div class="jss31 jss34 jss1"> 	<div style="position: absolute; font-family: Arial, Helvetica, sans-serif;	bottom: 10px; right: 10px; font-size: 18px; color: #ffffff; opacity: 0.5;">25070503</div> 		<div class="spinner"></div> 		<div class="jss31 jss34 jss48" style="flex: 1 1 0%;"> 			<div class="jss32"> 				<div class="jss7 jss9 jss20 jss3"> 					<div class="jss125"> 						<div class="jss123"> 						 <img src="25070503/logo.png"> 						</div> 					</div> 				</div> 			</div> 		</div> 		<!--PRODUCT_VERSION:25070503END--> 		<div class="jss31 jss34" style="flex: 3 1 0%;"> 			<div class="jss32"> 				<div class="jss31 jss34 jss39 jss50 gameloader"> 					<div class="jss32"> 						<div class="gameloader-game-name">Dashmetry</div> 					</div> 					<div class="jss32"> 						<div class="jss32 gameloader-logo"> 							<img id="game-logo" src="25070503/loading.png"> 						</div> 					</div> 					<div class="jss32"> 						<div> 							<div class="gameloader-progressbar"> 								<div class="gameloader-progressbar-progress" id="progress_fill" 										 style="width: 0%;"></div> 							</div> 							<div class="gameloader-progress-info">Game Loading...</div> 						</div> 					</div> 				</div> 			</div> 		</div> 	</div> </div> 	<script> 
+		var progressElement = document.getElementById('progress_fill');
+		var container =	document.getElementById("unity-container");
+		var canvas =	document.getElementById("unity-canvas");
+		var loadingBar = document.querySelector("#loadingBlock");
+		var progressBarFull = document.querySelector("#progress_fill");
+		var progress_text = document.querySelector(".gameloader-progress-info");
+		let text_percent = "";
+		var script = document.createElement("script");
+		script.src = loaderUrl;
+		script.onload = () => {
+		createUnityInstance(canvas, config, (progress) => {
+			progressElement.style.width = 100 * progress + "%";
+			text_percent = "Downloading file: " + Math.round(progress*100) + "%";
+			progress_text.innerText = text_percent;
+			if (progress >= 99) {
+				progress_text.innerText = "Game Loading ...";
+			}
+		}).then((unityInstance) => {
+			window.unityInstance = unityInstance;
+			setTimeout(function() {
+				loadingBar.style.display = "none";
+				window.focus();
+			}, 2000);
+			container.style.display = "block";
+		}).catch((message) => {
+			alert(message);
+		});
+		};
+		document.body.appendChild(script);
+	</script> 	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script> 	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script> 	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script> 	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics-compat.js"></script> 	<script type="module">
+		const firebaseConfig = {
+ apiKey: "AIzaSyDbg-gcbf0pH6fZzr5nIoNflnKNfTX5V6M",
+ authDomain: "games-geometry-lite.firebaseapp.com",
+ projectId: "games-geometry-lite",
+ storageBucket: "games-geometry-lite.firebasestorage.app",
+ messagingSenderId: "23510219032",
+ appId: "1:23510219032:web:ad4c17e42228739bd9c66d",
+ measurementId: "G-9QZ1HGBJR6"
+};
+		if(firebaseConfig ){
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () { window.dataLayer.push(arguments); }
+
+			window.gtag("config", firebaseConfig.measurementId, {
+			  cookie_domain: window.location.hostname,
+			  cookie_flags: "SameSite=None;Secure",
+			});
+			// Initialize Firebase
+			const app = firebase.initializeApp(firebaseConfig);
+			//const auth = getAuth(app);
+		}
+	</script> 	<script>
+		function firebaseSetUserProperties(props) {
+			firebase.analytics().setUserProperties(props);
+		}
+		function firebaseLogEvent(event_name) {
+			firebase.analytics().logEvent(event_name);
+		}
+		function firebaseLogEventParameter(event_name, event_param) {
+			firebase.analytics().logEvent(event_name, event_param);
+		}
+		let time_counter_gm=0;
+		function gmRepeatEvery30Seconds() {
+		  setInterval(function() {
+			if(config.eventLog){
+				firebaseLogEvent("time_countergm_"+time_counter_gm++);
+			}
+		  }, 30000);
+		}
+		gmRepeatEvery30Seconds();
+	</script> 	 </body>	 </html>
