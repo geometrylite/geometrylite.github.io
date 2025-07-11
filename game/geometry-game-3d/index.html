@@ -1,0 +1,111 @@
+<!DOCTYPE html>  <html lang="en-us">    <head>    <meta charset="utf-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">    <link rel="stylesheet" href="game.css">       <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap" rel="stylesheet">    <title>Geometry Game 3D</title>    <style type="text/css">      .jss1:before {        top: 0;        width: 100%;        filter: blur(16px);        height: 100%;        content: "";        display: block;        opacity: .5;        z-index: 0;        position: absolute;        background-size: cover;        background-image: url("background.png")      }    </style>     <link rel="canonical" href="https://geometrylite.github.io" data-react-helmet="true">    <!-- Meta Pixel Code -->  	<script>
+		!function (f, b, e, v, n, t, s) {
+			if (f.fbq) return; n = f.fbq = function () {
+				n.callMethod ?
+				n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+			n.queue = []; t = b.createElement(e); t.async = !0;
+			t.src = v; s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window, document, 'script',
+			'https://connect.facebook.net/en_US/fbevents.js');
+		fbq('init', '665291260274920');
+		fbq('track', 'PageView');
+	</script>  	<noscript><img height="1" width="1" style="display:none"  			src="https://www.facebook.com/tr?id=665291260274920&ev=PageView&noscript=1" /></noscript>  	<!-- End Meta Pixel Code →    	<!-- GOOGLE ADS: 1GAMES Google tag (gtag.js) -->  	<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1001329783"></script>  	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'AW-1001329783');
+	</script>  	<!-- Event snippet for 1games remarketing page -->  	<script>
+	  gtag('event', 'conversion', {
+		  'send_to': 'AW-1001329783/0XT8CIPc_qkZEPeovN0D',
+		  'value': 1.0,
+		  'currency': 'VND',
+		  'aw_remarketing_only': true
+	  });
+	</script>    	<script>
+	  gtag('event', 'conversion', {
+		  'send_to': 'AW-1001329783/-LMMCOPg-6kZEPeovN0D',
+		  'value': 1.0,
+		  'currency': 'VND',
+		  'aw_remarketing_only': true
+	  });
+	</script>       </head>    <body>  <div id="unity-container" style="display: none;">  	<canvas id="unity-canvas"></canvas>   </div>  <div id="loadingBlock" style="">    <div class="jss31 jss34 jss1">      <div class="spinner"></div>      <div class="jss31 jss34 jss48" style="flex: 1 1 0%;">        <div class="jss32">          <div class="jss7 jss9 jss20 jss3">            <div class="jss125">              <div class="jss123">               <img src="1games.png">              </div>            </div>          </div>        </div>      </div>        <div class="jss31 jss34" style="flex: 3 1 0%;">        <div class="jss32">          <div class="jss31 jss34 jss39 jss50 gameloader">            <div class="jss32">              <div class="gameloader-game-name">Geometry Game 3D</div>            </div>            <div class="jss32">              <div class="jss32 gameloader-logo">                <img id="game-logo" src="background.png">              </div>            </div>            <div class="jss32">              <div>                <div class="gameloader-progressbar">                  <div class="gameloader-progressbar-progress" id="progress_fill"                       style="width: 10%;"></div>                </div>                <div class="gameloader-progress-info">Game Loading...</div>              </div>            </div>          </div>        </div>      </div>    </div>  </div>  </body>  	<script>
+		//var buildUrl = "Build";
+		var buildUrl = "https://play.1games.io/game/geometry-game-3d/Build";
+		var loaderUrl = buildUrl + "/geometry-game-3d.loader.js";
+		var config = {
+		dataUrl: buildUrl + "/geometry-game-3d.data.unityweb",
+		frameworkUrl: buildUrl + "/geometry-game-3d.framework.js.unityweb",
+		codeUrl: buildUrl + "/geometry-game-3d.wasm.unityweb",
+				streamingAssetsUrl: "StreamingAssets",
+		companyName: "1games.io",
+		productName: "Geometry Game 3D",
+		productVersion: "1.1",
+		};
+
+		var progressElement = document.getElementById('progress_fill');
+		var container =  document.getElementById("unity-container");
+		var canvas =  document.getElementById("unity-canvas");
+		var loadingBar = document.querySelector("#loadingBlock");
+		var progressBarFull = document.querySelector("#progress_fill");
+		var progress_text = document.querySelector(".gameloader-progress-info");
+		 let text_percent = "";
+
+		 
+		 
+
+		var script = document.createElement("script");
+		script.src = loaderUrl;
+		script.onload = () => {
+		createUnityInstance(canvas, config, (progress) => {
+		  progressElement.style.width = 100 * progress + "%";
+			text_percent = "Downloading file: " + Math.round(progress*100) + "%";
+			progress_text.innerText = text_percent;
+			if (progress >= 99) {
+			  progress_text.innerText = "Game Loading ...";
+			}
+		}).then((unityInstance) => {
+		  window.unityInstance = unityInstance;
+		  setTimeout(function() {
+				loadingBar.style.display = "none";
+			}, 2000);
+		  container.style.display = "block";
+		}).catch((message) => {
+		  alert(message);
+		});
+		};
+		document.body.appendChild(script);
+	</script>  	  		<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>  	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>  	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>  	<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics-compat.js"></script>    	<script type="module">
+	  // Import the functions you need from the SDKs you need
+	  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+	  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+	  import { getAuth  } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+	  // TODO: Add SDKs for Firebase products that you want to use
+	  // https://firebase.google.com/docs/web/setup#available-libraries
+
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  const firebaseConfig = {
+		apiKey: "AIzaSyBhcMpEUPQsMjD17-ZtLQfys7L8nwMDjkw",
+		authDomain: "geometry-game-3d.firebaseapp.com",
+		projectId: "geometry-game-3d",
+		storageBucket: "geometry-game-3d.appspot.com",
+		messagingSenderId: "889607986056",
+		appId: "1:889607986056:web:0cf7fffa4eebf9e235783d",
+		measurementId: "G-L91NB94SQX"
+	  };
+
+	  window.dataLayer = window.dataLayer || [];
+		window.gtag = function(){window.dataLayer.push(arguments);}
+
+		window.gtag("config", firebaseConfig.measurementId, {
+			cookie_domain: window.location.hostname,
+			cookie_flags: "SameSite=None;Secure",
+		});
+		// Initialize Firebase
+		const app = firebase.initializeApp(firebaseConfig);
+		const auth = getAuth(app);
+	</script>     </html>

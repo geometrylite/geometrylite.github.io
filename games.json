@@ -8,5 +8,40 @@
         "name": "Geometry Lite Classic",
         "slug": "geometry-lite-classic",
         "image": "/cache/data/image/game/geometry-lite-classic/geometry-lite-classic-m186x186.webp"
+    },
+    {
+        "name": "Geometry Game 3D",
+        "slug": "geometry-game-3d",
+        "image": "/cache/data/image/game/geometry-game-3d/geometry-game-3d-m186x186.webp"
+    },
+    {
+        "name": "Geometry Jump",
+        "slug": "geometry-jump",
+        "image": "/cache/data/image/game/geometry-jump/geometry-jump-m186x186.webp"
+    },
+    {
+        "name": "Xmas Dash",
+        "slug": "xmas-dash",
+        "image": "/cache/data/image/game/xmas-dash/xmas-dash-m186x186.webp"
+    },
+    {
+        "name": "Spooky Dash",
+        "slug": "spooky-dash",
+        "image": "/cache/data/image/game/spooky-dash/spooky-dash-m186x186.webp"
+    },
+    {
+        "name": "Egg Dash",
+        "slug": "egg-dash",
+        "image": "/cache/data/image/game/egg-dash/egg-dash-m186x186.webp"
+    },
+    {
+        "name": "Wave Dash",
+        "slug": "wave-dash",
+        "image": "/cache/data/image/game/wave-dash/wave-dash-m186x186.webp"
+    },
+    {
+        "name": "Tap Road Beat",
+        "slug": "tap-road-beat",
+        "image": "/cache/data/image/game/tap-road-beat/tap-road-beat-game-m186x186.webp"
     }
 ]
