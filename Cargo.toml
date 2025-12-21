@@ -1,0 +1,11 @@
+[package]
+name = "geometrylite-github-io"
+version = "1.0.0"
+edition = "2024"
+
+[dependencies]
+webbrowser = "0.5.0"
+
+[[bin]]
+name = "geometrylite-github-io"
+path = "main.rs"
