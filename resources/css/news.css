@@ -556,7 +556,8 @@ a { color: inherit; }
 .nw-art:last-child { border-bottom: 0; padding-bottom: 4px; }
 .nw-art__thumb {
     flex: 0 0 auto;
-    width: 88px; height: 66px;
+    width: 88px;
+    aspect-ratio: 1 / 1;
     border-radius: 10px; overflow: hidden;
     background: var(--nw-surface-2);
     border: 1px solid var(--nw-border);
