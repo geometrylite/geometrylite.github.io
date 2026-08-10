@@ -88,6 +88,8 @@ a { color: inherit; }
 .nw-masthead {
     background: var(--nw-surface);
     border-bottom: 1px solid var(--nw-border);
+    position: relative;
+    z-index: 70;
 }
 .nw-masthead__inner {
     display: flex;
@@ -146,6 +148,7 @@ a { color: inherit; }
     margin-top: 8px !important;
     padding: 6px !important;
     backdrop-filter: none !important;
+    z-index: 200 !important;
 }
 .search__result_container .divide-y > * { border-color: var(--nw-border) !important; }
 .link_search_complete {

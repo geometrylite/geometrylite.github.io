@@ -3,5 +3,15 @@
         "name": "Geometry Dash Lite",
         "slug": "geometry-dash-lite",
         "image": "/cache/data/image/game/geometry-dash-lite/geometry-dash-lite-m186x186.webp"
+    },
+    {
+        "name": "Guides",
+        "slug": "guides",
+        "image": "/cache/data/image/game/guides/guides-m186x186.webp"
+    },
+    {
+        "name": "User Levels",
+        "slug": "user-levels",
+        "image": "/cache/data/image/game/user-levels/user-levels-m186x186.webp"
     }
 ]
