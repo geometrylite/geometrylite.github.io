@@ -136,6 +136,29 @@ a { color: inherit; }
     left: 12px;
 }
 
+/* Search results dropdown — theme shipped only dark styles for this box,
+   so with .dark removed it renders as a broken dark panel. Force a light card. */
+.search__result_container {
+    background: var(--nw-surface) !important;
+    border: 1px solid var(--nw-border) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 18px 44px rgba(15, 26, 19, .16) !important;
+    margin-top: 8px !important;
+    padding: 6px !important;
+    backdrop-filter: none !important;
+}
+.search__result_container .divide-y > * { border-color: var(--nw-border) !important; }
+.link_search_complete {
+    border-radius: 10px;
+    color: var(--nw-ink) !important;
+    transition: background .18s;
+}
+.link_search_complete:hover { background: var(--nw-surface-2) !important; }
+.text_search_complete,
+.search__result_container .text_color,
+.search__result_container .text-dark,
+.search__result_container h3 { color: var(--nw-ink) !important; }
+
 /* Hamburger (opens mobile sidebar — JS listens on ".menu") */
 .nw-hamburger.menu {
     display: none;
@@ -851,10 +874,16 @@ a { color: inherit; }
     overflow-y: auto !important;
     border-top: 0 !important;
     padding: 20px !important;
+    background: var(--nw-surface) !important;
     color: var(--nw-body) !important;
 }
 .blur_dialog .content_inner_popup { padding-bottom: 0 !important; }
-.popup-link_share { display: flex; gap: 8px; }
+.popup-link_share {
+    display: flex; gap: 8px;
+    padding: 0 !important; margin: 0 !important;
+    border: 0 !important; height: auto !important;
+    background: transparent !important;
+}
 .popup-link-share--url {
     flex: 1 1 auto; min-width: 0;
     height: 42px; padding: 0 14px;
